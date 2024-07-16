@@ -11,14 +11,14 @@ function App() {
 
   const getLocation = async () => {
     if (!locationSearchInput) return;
-    const url = `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apikey}&q=${locationSearchInput}`;
+    const url = `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apikey}&q=${locationSearchInput}`;
 
     const res = await axios.get(url);
     setLocationSearchResults(res.data);
   };
 
   const getCurrentCondition = async (locationKey) => {
-    const url = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${apikey}`;
+    const url = `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${apikey}`;
     const res = await axios.get(url);
     setWeather(res.data);
     setWeatherCondition(res.data[0].WeatherText.toLowerCase());
